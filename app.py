@@ -110,6 +110,14 @@ with tab1:
         with st.spinner("XLSX wird gelesen..."):
             try:
                 data = parse_xlsx(uploaded_file.getvalue())
+                # Widget-Keys direkt setzen, damit st.text_input die Werte übernimmt
+                st.session_state.inp_strasse = data["strasse"]
+                st.session_state.inp_hausnummer = data["hausnummer"]
+                st.session_state.inp_plz = data["plz"]
+                st.session_state.inp_ort = data["ort"]
+                st.session_state.inp_projektnummer = data["projektnummer"]
+
+                # Auch die allgemeinen Keys setzen (für andere Tabs)
                 st.session_state.strasse = data["strasse"]
                 st.session_state.hausnummer = data["hausnummer"]
                 st.session_state.plz = data["plz"]
@@ -143,11 +151,11 @@ with tab1:
                     st.session_state.plan_df = pd.DataFrame(plan_rows)
 
                 st.session_state.xlsx_parsed = True
-                st.success("XLSX erfolgreich eingelesen!")
+                st.rerun()
             except Exception as e:
                 st.error(f"Fehler beim Einlesen der XLSX-Datei: {e}")
 
-    # Formularfelder
+    # Formularfelder – Widget-Key ist die primäre Datenquelle
     col1, col2 = st.columns(2)
     with col1:
         st.session_state.strasse = st.text_input("Straße", value=st.session_state.strasse, key="inp_strasse")
