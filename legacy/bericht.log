@@ -1,0 +1,488 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.21)  12 JAN 2026 15:37
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"c:/Users/ProfDrJannikHüls/OneDrive - Richters & Hüls Ingenieurbüro für A
+bfallwirtschaft und Immissionsschutz/Dokumente/python/haltungsform/bericht.tex"
+
+
+(c:/Users/ProfDrJannikHüls/OneDrive - Richters & Hüls Ingenieurbüro für Abf
+allwirtschaft und Immissionsschutz/Dokumente/python/haltungsform/bericht.tex
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-07-11>
+(C:\Program Files\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Program Files\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+
+(C:\Program Files\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+\col@sep=\dimen149
+\ar@mcellbox=\box53
+\extrarowheight=\dimen150
+\NC@list=\toks17
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box54
+)
+\TX@col@width=\dimen151
+\TX@old@table=\dimen152
+\TX@old@col=\dimen153
+\TX@target=\dimen154
+\TX@delta=\dimen155
+\TX@cols=\count283
+\TX@ftn=\toks18
+)
+(C:\Program Files\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
+)
+(C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+)
+(C:\Program Files\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2025/05/14 v25.9 The multilingual framework for pdfLaTeX, LuaLaT
+eX and XeLaTeX
+\babel@savecnt=\count284
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
+ne 2043.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
+ne 2045.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
+e 2047.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
+e 2048.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
+on input line 2049.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
+on input line 2051.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
+on input line 2076.
+\U@D=\dimen156
+\l@unhyphenated=\language79
+
+(C:\Program Files\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count285
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Program Files\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Program Files\MiKTeX\tex/latex/babel-german\ngerman.ldf
+Language: ngerman 2024/12/10 v2.15 German support for babel (post-1996 orthogra
+phy)
+
+(C:\Program Files\MiKTeX\tex/generic/babel/locale/de\babel-ngerman.tex
+Package babel Info: Importing font and identification data for ngerman
+(babel)             from babel-de.ini. Reported on input line 11.
+)
+(C:\Program Files\MiKTeX\tex/latex/babel-german\ngermanb.ldf
+Language: ngermanb 2024/12/10 v2.15 German support for babel (post-1996 orthogr
+aphy)
+Package babel Info: Making " an active character on input line 122.
+)))
+(C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(C:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+)
+(C:\Program Files\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+)
+(C:\Program Files\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
+\everycr=\toks21
+\minrowclearance=\skip53
+\rownum=\count286
+)
+(C:\Program Files\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+(C:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count287
+\Gm@cntv=\count288
+\c@Gm@tempcnt=\count289
+\Gm@bindingoffset=\dimen157
+\Gm@wd@mp=\dimen158
+\Gm@odd@mp=\dimen159
+\Gm@even@mp=\dimen160
+\Gm@layoutwidth=\dimen161
+\Gm@layoutheight=\dimen162
+\Gm@layouthoffset=\dimen163
+\Gm@layoutvoffset=\dimen164
+\Gm@dimlist=\toks23
+
+(C:\Program Files\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen165
+\Gin@req@width=\dimen166
+)
+(C:\Program Files\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip54
+\f@nch@offset@elh=\skip55
+\f@nch@offset@erh=\skip56
+\f@nch@offset@olh=\skip57
+\f@nch@offset@orh=\skip58
+\f@nch@offset@elf=\skip59
+\f@nch@offset@erf=\skip60
+\f@nch@offset@olf=\skip61
+\f@nch@offset@orf=\skip62
+\f@nch@height=\skip63
+\f@nch@footalignment=\skip64
+\f@nch@widthL=\skip65
+\f@nch@widthC=\skip66
+\f@nch@widthR=\skip67
+\@temptokenb=\toks24
+)
+(C:\Program Files\MiKTeX\tex/latex/siunitx\siunitx.sty
+Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count290
+\l__siunitx_number_exponent_fixed_int=\count291
+\l__siunitx_number_min_decimal_int=\count292
+\l__siunitx_number_min_integer_int=\count293
+\l__siunitx_number_round_precision_int=\count294
+\l__siunitx_number_lower_threshold_int=\count295
+\l__siunitx_number_upper_threshold_int=\count296
+\l__siunitx_number_group_first_int=\count297
+\l__siunitx_number_group_size_int=\count298
+\l__siunitx_number_group_minimum_int=\count299
+\l__siunitx_angle_tmp_dim=\dimen167
+\l__siunitx_angle_marker_box=\box55
+\l__siunitx_angle_unit_box=\box56
+\l__siunitx_compound_count_int=\count300
+
+(C:\Program Files\MiKTeX\tex/latex/translations\translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
+ (CN)
+
+(C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count301
+)
+(C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Program Files\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(C:\Program Files\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks25
+\ex@=\dimen168
+))
+\l__siunitx_table_tmp_box=\box57
+\l__siunitx_table_tmp_dim=\dimen169
+\l__siunitx_table_column_width_dim=\dimen170
+\l__siunitx_table_integer_box=\box58
+\l__siunitx_table_decimal_box=\box59
+\l__siunitx_table_uncert_box=\box60
+\l__siunitx_table_before_box=\box61
+\l__siunitx_table_after_box=\box62
+\l__siunitx_table_before_dim=\dimen171
+\l__siunitx_table_carry_dim=\dimen172
+\l__siunitx_unit_tmp_int=\count302
+\l__siunitx_unit_position_int=\count303
+\l__siunitx_unit_total_int=\count304
+)
+(C:\Program Files\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count305
+) (bericht.aux
+Package babel Info: 'ngerman' activates 'ngerman' shorthands.
+(babel)             Reported  on input line 5.
+)
+\openout1 = `bericht.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+ (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count306
+\scratchdimen=\dimen173
+\scratchbox=\box63
+\nofMPsegments=\count307
+\nofMParguments=\count308
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count309
+\MPscratchDim=\dimen174
+\MPnumerator=\count310
+\makeMPintoPDFobject=\count311
+\everyMPtoPDFconversion=\toks27
+) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-53.1381pt
+* \headheight=27.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(C:\Program Files\MiKTeX\tex/latex/translations/dicts\translations-basic-dictio
+nary-german.trsl
+File: translations-basic-dictionary-german.trsl (german translation file `trans
+lations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `german'. on input line 48.
+<logo.png, id=1, 1968.35374pt x 566.115pt>
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 53.
+(pdftex.def)             Requested size: 159.33821pt x 45.82568pt.
+
+Overfull \hbox (2.41779pt too wide) in paragraph at lines 56--67
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--84
+
+ []
+
+
+
+[1
+
+{C:/Users/ProfDrJannikHüls/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <
+./logo.png>] (bericht.toc)
+\tf@toc=\write3
+\openout3 = `bericht.toc'.
+
+
+
+[1]
+Overfull \hbox (1.05113pt too wide) in paragraph at lines 128--129
+[]\T1/cmss/m/n/10.95 Diese Vor-ab-sch�t-zung un-ter-st�tzt land-wirt-schaft-li-
+che Be-trie-be da-bei, den Auf-wand und die Schwie-
+ []
+
+
+
+Package babel Info: 'ngerman' activates 'ngerman' shorthands.
+(babel)             Reported  on input line 135.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 135.
+(pdftex.def)             Requested size: 79.14122pt x 22.76228pt.
+[2]
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 158.
+(pdftex.def)             Requested size: 79.14122pt x 22.76228pt.
+[3]
+Underfull \hbox (badness 10000) in alignment at lines 172--172
+[][][] 
+ []
+
+<Lage.png, id=27, 844.8363pt x 597.432pt>
+File: Lage.png Graphic file (type png)
+<use Lage.png>
+Package pdftex.def Info: Lage.png  used on input line 181.
+(pdftex.def)             Requested size: 455.24411pt x 321.93388pt.
+
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 190.
+(pdftex.def)             Requested size: 79.14122pt x 22.76228pt.
+[4 <./Lage.png>]
+Underfull \hbox (badness 10000) in alignment at lines 205--205
+[][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 222--222
+[][][] 
+ []
+
+
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 237.
+(pdftex.def)             Requested size: 79.14122pt x 22.76228pt.
+[5]
+Overfull \hbox (4.42715pt too wide) in paragraph at lines 238--239
+[]\T1/cmss/m/n/10.95 Die nach-fol-gen-den Ta-bel-len ge-ben einen �ber-blick �b
+er den ak-tu-el-len An-la-gen-be-stand (Ist-Zustand)
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 286--286
+[][][] 
+ []
+
+
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 290.
+(pdftex.def)             Requested size: 79.14122pt x 22.76228pt.
+[6]
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 342.
+(pdftex.def)             Requested size: 79.14122pt x 22.76228pt.
+[7]
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 390.
+(pdftex.def)             Requested size: 79.14122pt x 22.76228pt.
+[8] (bericht.aux)
+ ***********
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-07-11>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 8876 strings out of 468149
+ 201051 string characters out of 5441113
+ 602718 words of memory out of 5000000
+ 37395 multiletter control sequences out of 15000+600000
+ 639618 words of font info for 62 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 73i,15n,80p,810b,540s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\ProfDrJannikHüls\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecsi1095.pk> <C:\Users\ProfDrJannikHüls\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\ProfDrJannikHüls\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1000.pk> <C:\Users\ProfDrJannik
+Hüls\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\
+Users\ProfDrJannikHüls\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
+\ecss0900.pk> <C:\Users\ProfDrJannikHüls\AppData\Local\MiKTeX\fonts/pk/ljfour/
+jknappen/ec/dpi600\ecsx0900.pk> <C:\Users\ProfDrJannikHüls\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1095.pk> <C:\Users\ProfDrJannikHüls\A
+ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\P
+rofDrJannikHüls\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss12
+00.pk> <C:\Users\ProfDrJannikHüls\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappe
+n/ec/dpi600\ecsx1728.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:
+/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on bericht.pdf (9 pages, 2288685 bytes).
+PDF statistics:
+ 430 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+

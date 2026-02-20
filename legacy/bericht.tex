@@ -1,0 +1,390 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[table]{xcolor}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{url}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\pagestyle{fancy}
+\fancyhf{} % alle Kopf- und Fußzeilenfelder leeren
+
+% -----------------------
+% Kopfzeile
+% -----------------------
+\setlength{\headheight}{27pt} % Höhe der Kopfzeile anpassen
+\fancyhead[L]{\small{\leftmark}} % Kapitelüberschrift links
+\fancyhead[R]{\includegraphics[height=0.8cm]{logo.png}} % Logo rechts
+
+% -----------------------
+% Fußzeile
+% -----------------------
+\fancyfoot[L]{Immissionsschutztechnische Vorabschätzung}
+\fancyfoot[R]{Seite \thepage{}}
+
+% Linie unter Kopfzeile & über Fußzeile
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Seitenränder
+\geometry{margin=2.5cm}
+
+% Farben definieren
+\definecolor{ciBlue}{HTML}{0C7CFF}
+\definecolor{ciDark}{HTML}{0F1B38}
+\definecolor{ciLight}{HTML}{F2F5F9}
+\definecolor{ampelRed}{HTML}{FF3B30}
+\definecolor{ampelYellow}{HTML}{FFCC00}
+\definecolor{ampelGreen}{HTML}{34C759}
+
+\begin{document}
+
+% Titelseite
+
+\begin{flushright}
+    \includegraphics[width=0.35\textwidth]{logo.png}
+\end{flushright}
+\vspace{2cm}
+{\LARGE\bfseries Immissionsschutztechnische Vorabschätzung} \\[0.5cm]
+\hspace{0pt}{\large Änderung der Haltungsform in der Schweinemast}
+\vspace{1cm}
+\noindent
+\\
+\vspace{2cm}
+\begin{tabularx}{\textwidth\noindent}{@{}l X@{}}
+\multicolumn{2}{@{}l}{\textbf{Angaben zum landwirtschaftlichen Betrieb}} \\[0.2cm]
+\textbf{Adresse} & Kuhweg 11 bzw. 17 \\[0.1cm] % Ändern
+\textbf{Ort} & 59457 Werl \\[0.1cm] % Ändern
+\end{tabularx}
+
+\vspace{2cm}
+\begin{tabularx}{\textwidth\noindent}{@{}l X@{}}
+\multicolumn{2}{@{}l}{\textbf{Projektinformationen}} \\[0.2cm]
+% Ändern
+\textbf{Projektnummer} & G-6926-01 \\[0.1cm]
+\textbf{Datum} & \today \\
+\end{tabularx}
+
+\vfill
+\noindent\textbf{Erstellt durch} \\[0.2cm]
+Ingenieurbüro Richters \& Hüls \\
+B. Eng. Andre Feldhaus \\
+Erhardstraße 9 \\
+48683 Ahaus \\
+02561 / 43004 \\
+info@richtershuels.de \\
+
+\vfill
+\begin{footnotesize}
+    \noindent\textbf{Verwendungshinweis:} \\
+Dieses Dokument stellt eine Serviceleistung des Ingenieurbüros Richters \& Hüls dar und dient ausschließlich zur immissionsschutztechnischen Vorabschätzung im Rahmen des benannten Projekts. Es ist nicht zur rechtlich verbindlichen Bewertung geeignet und ersetzt keine gutachterliche Stellungnahme im Genehmigungsverfahren.
+\end{footnotesize}
+
+\thispagestyle{empty}
+
+% Inhaltsverzeichnis 
+
+\newpage
+\pagenumbering{arabic} % normale Seitenzählung beginnt ab hier
+
+\tableofcontents
+\thispagestyle{plain}  % oder fancy, falls gewünscht
+
+\newpage
+
+% Einleitung
+\section{Einleitung}
+
+Die immissionsschutzrechtliche Beurteilung von landwirtschaftlichen Tierhaltungsanlagen wird auf Grundlage des Bundes-Immissionsschutzgesetzes (BImSchG) durchgeführt. Für die Bewertung von Geruchs- und Stickstoffimmissionen ist insbesondere die Technische Anleitung zur Reinhaltung der Luft (TA Luft, Fassung 2021) maßgeblich. Diese legt Schwellenwerte und Beurteilungsmaßstäbe fest, die sich nach der Empfindlichkeit der betroffenen Nutzung richten – etwa für Wohngebiete, den Außenbereich oder naturnahe Flächen.
+
+Geruchsimmissionen werden anhand des Anteils sogenannter Geruchsstunden am Jahresmittel beurteilt. Die TA Luft sieht dabei abgestufte Immissionswerte vor, abhängig von der Schutzwürdigkeit des Gebiets. Auch für Stickstoffeinträge gelten differenzierte Prüfkriterien, insbesondere wenn empfindliche Ökosysteme oder Schutzgebiete betroffen sind. In solchen Fällen können bereits geringe Zusatzbelastungen zu einer Prüfpflicht führen.
+
+Wesentlich für die immissionsschutzrechtliche Bewertung ist die rechtliche Einstufung des Vorhabens. Je nachdem, ob es sich um eine baurechtlich genehmigte Anlage oder eine genehmigungsbedürftige Anlage nach BImSchG handelt, ergeben sich unterschiedliche Anforderungen an die Vorgehensweise.
+
+\subsection{Baurechtlich genehmigte Tierhaltungsanlagen}
+
+Für Anlagen, die ausschließlich baurechtlich genehmigt werden müssen, kann im günstigsten Fall nachgewiesen werden, dass die durch das geplante Vorhaben verursachte Zusatzbelastung unterhalb der sogenannten Irrelevanzkriterien liegt. In diesem Fall ist aus immissionsschutzfachlicher Sicht keine weitergehende Begutachtung notwendig.
+
+Wenn die ermittelten Wahrnehmungshäufigkeiten die Irrelevanzschwelle für Gerüche überschreiten ist eine vertiefende Auseinandersetzung mit den Immissionen erforderlich. Dies kann entweder über Maßnahmen zur Verbesserung der Bestandssituation erfolgen, etwa durch bauliche Änderungen oder Umstrukturierungen bestehender Stallanlagen, oder durch eine umfassende Gesamtbelastungsbetrachtung. 
+
+Letztere erfordert die Ermittlung aller relevanten Immissionsquellen im Umfeld. Dabei müssen nicht nur die Emissionen des geplanten Vorhabens, sondern auch die benachbarten Betriebe berücksichtigt werden. Dies setzt in der Regel ein detailliertes Aktenstudium bei der Genehmigungsbehörde voraus, um die genehmigten Tierplatzzahlen und Anlagentypen zu erfassen. 
+
+\subsection{Anlagen mit Genehmigungspflicht nach BImSchG}
+
+Bei genehmigungsbedürftigen Anlagen im Sinne des BImSchG entfällt die Möglichkeit, sich auf Irrelevanzkriterien zu berufen. Das bedeutet, dass eine Erhebung der Gesamtbelastungsbetrachtung vorzunehmen ist. Dabei geht es darum, alle relevanten Emissionsquellen in der Umgebung zu identifizieren, ihre Auswirkungen zu ermitteln und detailliert zu bewerten. 
+
+\subsection{Zielsetzung der Vorabschätzung}
+
+Um Landwirtinnen und Landwirten bereits in einem frühen Stadium der Planung eine verlässliche und kostengünstige Einschätzung zu ermöglichen, haben wir ein Verfahren zur automatisierten Vorabschätzung entwickelt. 
+
+Diese Vorabschätzung unterstützt landwirtschaftliche Betriebe dabei, den Aufwand und die Schwierigkeit geplanter Änderungen in der Tierhaltung aus immissionsschutzrechtlicher Sicht frühzeitig einzuschätzen. Basierend auf den spezifischen Vorhabensdaten sowie den örtlichen Gegebenheiten kann ermittelt werden, ob das geplante Vorhaben voraussichtlich genehmigungsfähig ist. 
+
+Das Verfahren erlaubt eine effiziente, standardisierte Bewertung immissionsschutzrelevanter Fragen und trägt dazu bei, Planungsunsicherheiten zu minimieren und unnötige Kosten in späteren Genehmigungsphasen zu vermeiden.
+
+\subsection{Systematik der Vorabschätzung}
+
+Im Rahmen dieser Vorabschätzung erfolgt eine strukturierte fachliche Einordnung der wesentlichen immissionsschutzrechtlich relevanten Inhalte. Für jedes zentrale Kapitel nehmen wir jeweils eine Einschätzung zur Schwierigkeit sowie zum erwarteten Aufwand vor.
+
+\textbf{Schwierigkeit}: Hier schauen wir, wie groß das Risiko ist, dass es im weiteren Verlauf Probleme oder Konflikte gibt – zum Beispiel mit Nachbarn oder Behörden.
+Je höher die Schwierigkeit, desto größer ist die Chance, dass es im Verfahren zu Rückfragen oder Widerstand kommt.
+
+\textbf{Aufwand}: Das zeigt, wie viel Arbeit und Zeit wir voraussichtlich investieren müssen. Das ist wichtig für die Kostenschätzung.
+
+Die Einschätzung durch ein Ampelsystem bewertet. Der Bewertungsmaßstab ist in der folgenden Tabelle dargestellt:
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\columncolor{ampelGreen!20}}Y|>{\columncolor{ampelYellow!20}}Y|>{\columncolor{ampelRed!20}}Y|}
+\hline
+\textit{unbedenklich / gering} & \textit{relevant / vertiefend} & \textit{kritisch / erheblich} \\
+\hline
+\end{tabularx}
+\caption{Bewertungsskala zur Schwierigkeit und zum Aufwand}
+\end{table}
+
+Grün heißt: Alles im grünen Bereich – hier ist der Aufwand gering und Probleme sind eher unwahrscheinlich. Gelb bedeutet: Hier sollte man genauer hinschauen, denn das sind Punkte, die entweder mehr Arbeit machen oder schwieriger werden könnten. Rot zeigt: Das sind wirklich kritische Themen im Immissionsschutz, die man möglichst früh klären sollte, um späteren Aufwand zu vermeiden.
+
+Für Aufwände und Schwierigkeiten im gelben und roten Bereiche werden textuelle Begründungen für die Einstufung gegeben. Bei grünen Einstufungen entfällt dies, da hier keine besonderen Herausforderungen zu erwarten sind.
+%Beschreibung des Vorhabens
+\newpage
+\section{Beschreibung des Vorhabens}
+\subsection{Genehmigungsrechtliche Einordnung}
+%Ändern
+Das vorliegende Vorhaben betrifft die Ergänzung von Ausläufen.
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\hsize=0.166\hsize}X|>{\hsize=0.417\hsize}Y|>{\hsize=0.417\hsize}Y|}
+\hline
+&\textbf{Aufwand} & \textbf{Schwierigkeit} \\
+\hline
+\textbf{Begründung}&\cellcolor{ampelGreen!30} & Kein Einfluss \\
+\hline
+\end{tabularx}
+\caption{Einschätzung von Aufwand und Schwierigkeit nach genehmigungsrechtlicher Einordnung}
+\end{table}
+
+\subsection{Standortbeschreibung}
+%Ändern
+Der Betrieb befindet sich im Außenbereich südlich von Büderich inmitten weiterer landwirtschaftlicher Betriebe sowie schutzbedürftiger Nutzungen. Die Lage kann aus immissionsschutzfachlicher Sicht als schwierig eingestuft werden. Eine Übersicht über den Standort kann der Abbildung \ref{fig:lageplan} entnommen werden. 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{Lage.png}
+    \caption{Lageplan}
+    \label{fig:lageplan}
+\end{figure}
+
+\subsection*{Immissionsorte}
+Immissionsorte sind diejenigen Orte, an denen die Auswirkungen der Emissionen eines Vorhabens beurteilt werden. Sie repräsentieren schutzbedürftige Nutzungen im Sinne des Immissionsschutzrechts, insbesondere Wohngebäude, Arbeitsstätten sowie empfindliche Einrichtungen wie Schulen oder Krankenhäuser. 
+
+Für Stickstoffeinträge ist darüber hinaus die Beurteilung von Biotopen und anderen empfindlichen Ökosystemen von Bedeutung. Besonders schützenswerte Flächen, wie FFH-Gebiete, Naturschutzgebiete oder gesetzlich geschützte Biotope, müssen hinsichtlich zusätzlicher Stickstoffbelastungen gesondert betrachtet werden, da bereits geringe Einträge zu ökologisch relevanten Veränderungen führen können.
+
+Für die vorliegende Vorabschätzung wurden alle im Umkreis des Vorhabens liegenden Nutzungen berücksichtigt, die im Sinne der TA Luft als relevant einzustufen sind. Grundlage hierfür ist in der Regel eine Auswertung amtlicher Luftbilder, Liegenschaftskarten oder georeferenzierter Datenquellen.
+
+Die genaue Festlegung der Immissionsorte erfolgt automatisiert anhand eines GIS-gestützten Analyseverfahrens, wobei insbesondere der Abstand zur Anlage, die Art der Nutzung und die potenzielle Betroffenheit durch Gerüche und Stickstoffeinträge berücksichtigt werden. Die Immissionsorte dienen als Grundlage für die folgende Schwierigkeitsabschätzung.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\hsize=0.166\hsize}X|>{\hsize=0.417\hsize}Y|>{\hsize=0.417\hsize}Y|}
+\hline
+&\textbf{Aufwand} & \textbf{Schwierigkeit} \\
+\hline
+% Ändern
+\textbf{Begründung}&\cellcolor{ampelGreen!30} & \cellcolor{ampelGreen!30}Integrierte Lage \\
+\hline
+\end{tabularx}
+\caption{Einschätzung von Aufwand und Schwierigkeit nach Bestimmung der Immissionsorte}
+\end{table}
+
+\subsection*{Nachbarbetriebe}
+Im Rahmen der Vorabschätzung werden auch benachbarte landwirtschaftliche Betriebe berücksichtigt, die potenziell relevante Emissionen verursachen können. Diese Betriebe werden in der Regel anhand von Luftbildern und amtlichen Karten ermittelt. Die Erfassung der Nachbarbetriebe erfolgt automatisiert und umfasst alle Betriebe, die innerhalb eines festgelegten Umkreises um das Vorhaben liegen. Dabei werden insbesondere die Tierhaltungsarten, die Anzahl der Tierplätze sowie die Art der Stallanlagen erfasst. Diese Informationen sind entscheidend für die Gesamtbewertung der Immissionen und deren Auswirkungen auf die Umgebung.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\hsize=0.166\hsize}X|>{\hsize=0.417\hsize}Y|>{\hsize=0.417\hsize}Y|}
+\hline
+&\textbf{Aufwand} & \textbf{Schwierigkeit} \\
+\hline
+% Ändern
+\textbf{Begründung}&\cellcolor{ampelGreen!30} & \cellcolor{ampelGreen!30} Hohe Vorbelastung  \\
+\hline
+\end{tabularx}
+\caption{Einschätzung von Aufwand und Schwierigkeit nach Bestimmung der Nachbarbetriebe}
+\end{table}
+
+\subsection{Stallanlagen und Lüftungssysteme}
+Die Ausführung der Stallanlagen wird hinsichtlich ihres Lüftungsprinzips und eventueller Ausläufe unterschieden. Es kommen folgende Ausführungen zur Anwendung:
+
+\begin{enumerate}
+\item \textbf{Zwangsbelüfteter Stall:} Geschlossener Stall mit mechanischer Lüftung und gezielter Abluftabführung über Kamine.
+\item \textbf{Zwangsbelüfteter Stall mit Auslauf:} Wie oben, zusätzlich mit Auslaufbereich im Freien; verändert Emissionsverhalten durch zusätzliche Quellen.
+\item \textbf{Außenklimastall:} Offen gestalteter Stall mit natürlichem Luftaustausch über Öffnungen in Wand und/oder Dach.
+\item \textbf{Außenklimastall mit Auslauf:} Außenklimastall mit zusätzlichem Auslaufbereich, in dem Tiere regelmäßig Zugang zum Freien haben.
+\end{enumerate}
+
+Der Stand der Technik gilt in dieser Vorabschätzung als erfüllt, wenn die Abluft über einen mindestens \SI{10}{\meter} hohen Schornstein abgeführt wird, der Austrittspunkt mindestens \SI{3}{\meter} über dem First liegt und die Austrittsgeschwindigkeit mindestens \SI{7}{\meter\per\second} beträgt. Werden diese Anforderungen nicht eingehalten, gilt der Stand der Technik als nicht erfüllt. Die Ausführung der Abluftführung stellt dabei ein wesentliches Kriterium für die Einschätzung der Schwierigkeit der entstehenden Immissionen dar.
+
+Die nachfolgenden Tabellen geben einen Überblick über den aktuellen Anlagenbestand (Ist-Zustand) sowie die geplanten Änderungen (Plan-Zustand).
+
+\subsection*{Ist-Zustand der Tierhaltung}
+
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{|c|c|c|Y|c|Y|}
+\hline
+\textbf{BE-Nr.} & \textbf{Tierart} & \textbf{Tierplätze} & \textbf{Ausführung} & \textbf{Kamine} & \textbf{Stand der Technik} \\
+\hline
+Kolter Co. KG & Mastschweine & 1100 & 1 & Ja & Nein \\
+Kolter Co. KG & Ferkelaufzucht & 1600 & 1 & Ja & Nein \\
+Kolter & Mastschweine & 1499 & 1 & Ja & Nein \\
+% Ändern
+\hline
+\end{tabularx}
+\caption{Übersicht des Ist-Zustands der vorhandenen Stallanlagen}
+\end{table}
+
+\vspace{1em}
+
+\subsection*{Geplanter Zustand der Tierhaltung}
+
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{|c|Y|c|Y|}
+\hline
+\textbf{BE-Nr.} & \textbf{Tierart} & \textbf{Tierplätze} & \textbf{Ausführung} \\
+\hline
+Kolter Co. KG & Mastschweine & 850 & 3 \\
+Kolter Co. KG & Ferkelaufzucht & 1600 & 1 \\
+Kolter & Mastschweine & 1300 & 3 \\
+% Ändern
+\hline
+\end{tabularx}
+\caption{Übersicht des Plan-Zustands der Stallanlagen}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\hsize=0.166\hsize}X|>{\hsize=0.417\hsize}Y|>{\hsize=0.417\hsize}Y|}
+\hline
+&\textbf{Aufwand} & \textbf{Schwierigkeit} \\
+\hline
+% Ändern
+\textbf{Begründung}&\cellcolor{ampelGreen!30} & \cellcolor{ampelGreen!30} \\
+\hline
+\end{tabularx}
+\caption{Einschätzung von Aufwand und Schwierigkeit nach Beurteilung der Stallanlagen im Ist- und Plan-Zustand}
+\end{table}
+
+\newpage
+\section{Zusammenfassung der Vorabschätzung}
+% Ändern
+In diesem Projekt erwarten wir aus immissionsschutzfachlicher keine Probleme, da wir im Vergleich zwischen Ist- und Planzustand eine Verbesserung der Geruchsimmissionssituation darstellen können.   
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+% Ändern
+\textbf{Thema} &\textbf{Aufwand} & \textbf{Schwierigkeit} \\
+\hline
+Genehmigungsrecht&\cellcolor{ampelGreen!30} & Kein Einfluss \\
+\hline
+Immissionsorte&\cellcolor{ampelGreen!30} &\cellcolor{ampelGreen!30} \\
+\hline
+Nachbarbetriebe&\cellcolor{ampelGreen!30} &\cellcolor{ampelGreen!30} \\
+\hline
+Ist- und Plan-Zustand&\cellcolor{ampelGreen!30} &\cellcolor{ampelGreen!30} \\
+\hline
+\end{tabularx}
+\caption{Gesamteinschätzung des Vorhabens}
+\end{table}
+
+\subsection*{Prüfungserfordernis}
+
+Die genaue Prüfungserfordernis wird erst nach Absprache mit der Genehmigungsbehörde festgelegt. Unserer Einschätzung nach sind folgende Parameter für die immissionsschutzrechtliche Beurteilung relevant:
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|X|c|}
+\hline
+\textbf{Parameter} & \textbf{Ermittlung erforderlich} \\
+\hline
+% Ändern
+Ermittlung der Geruchshäufigkeiten & Ja\\
+\hline
+Ermittlung der Stickstoffdeposition & Voraussichtlich Nein\\
+\hline
+Ausbreitungsberechnung Ist-Zustand & Ja\\
+\hline
+Ausbreitungsberechnung Plan-Zustand & Ja\\
+\hline
+Ausbreitungsberechnung Gesamtbelastung & Nein\\
+\hline
+Konditionierung von Minderungsmaßnahmen & Nein\\
+\hline
+\end{tabularx}
+\caption{Prüfungserfordernis}
+\end{table}
+
+\newpage
+\section{Weitere Schritte}
+Automatisierung hilft uns, die immissionsschutzrechtliche Beurteilung effizient und kostengünstig durchzuführen. Durch dieses effiziente Vorgehen haben wir mehr Zeit, uns mit allen Projektbeteiligen persönlich zu beraten und die bestmögliche Lösung zu finden. Als persönlicher Ansprechpartner steht Ihnen in diesem Projekt zur Verfügung:
+
+\begin{center}
+\textbf{Herr Andre Feldhaus} \\
+Ingenieurbüro Richters \& Hüls \\
+Erhardstraße 9 \\
+48683 Ahaus \\
+Telefon: 02561 / 43004-01 \\
+E-Mail: feldhaus@richtershuels.de
+\end{center}
+\textbf{Wir können Sie im kompletten Immissonsschutz begleiten und schlagen folgende Schritte vor:}
+\begin{enumerate}
+\item Gemeinsame Absprache zum weiteren Vorgehen bezüglich der immissionsschutzrechtlichen Beurteilung.
+\item Absprache mit der Genehmigungsbehörde über die Notwendigkeit der immissionsschutzfachlichen Gutachten.
+\item Ermittlung der Geruchsimmissionen durch Ausbreitungsberechnung und Abschätzung des weiteren Vorgehens. 
+\item Falls erfordlich: Ermittlung der relevanten Betriebe, die als Vorbelastung für die Gesamtbelastungsbetrachtung herangezogen werden müssen. 
+\item Falls erfordlich: Erhebung der Tierplatzzahlen und Anlagentypen der relevanten Betriebe.
+\item Falls erfordlich: Durchführung einer Gesamtbelastungsbetrachtung.
+\item Darstellung der Ergebnisse in einem Gutachten, das die immissionsschutzrechtliche Relevanz des Vorhabens abschließend bewertet.
+\end{enumerate}
+
+% \vspace{1.5em}
+% \noindent\textbf{Geplanter Zeitrahmen nach Beauftragung}
+% \vspace{0.5em}
+
+% \begin{center}
+% \begin{tabularx}{0.95\textwidth}{|>{\raggedright\arraybackslash}X|>{\centering\arraybackslash}m{3cm}|}
+% \hline
+% \rowcolor{ciLight}
+% \textbf{Schritt} & \textbf{Dauer} \\
+% \hline
+% Absprache mit der Genehmigungsbehörde und Ermittlung der relevanten Betriebe & 1 Woche \\
+% \hline
+% Erhebung der Tierplatzzahlen und Anlagentypen\newline
+% \footnotesize{(Dauer abhängig von Behörde; Zeitplanung gilt ab Vorliegen aller Unterlagen)} & 1 Woche \\
+% \hline
+% Durchführung der Gesamtbelastungsbetrachtung & 2 Wochen \\
+% \hline
+% Absprache zu Minderungsmaßnahmen und mit Genehmigungsbehörde zum weiteren Vorgehen\newline
+% \footnotesize{(Nur bei komplexen Fällen erforderlich; meist direkte Abschlussmöglichkeit)} & Unmittelbar \\
+% \hline
+% Erstellung des Gutachtens & 1 Woche \\
+% \hline
+% \end{tabularx}
+% \end{center}
+
+\end{document}

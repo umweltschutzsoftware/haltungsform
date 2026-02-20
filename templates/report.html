@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <style>{{ css }}</style>
+</head>
+<body>
+
+<!-- Header (wird auf jeder Seite angezeigt via @page frame) -->
+<div id="page-header">
+    <table style="width: 100%; border: none; border-bottom: 1pt solid #333; padding-bottom: 4pt;">
+        <tr>
+            <td style="border: none; text-align: left; font-size: 9pt; color: #333;">Immissionsschutztechnische Vorabschätzung</td>
+            <td style="border: none; text-align: right;"><img src="{{ logo_uri }}" height="22"></td>
+        </tr>
+    </table>
+</div>
+
+<!-- Footer (wird auf jeder Seite angezeigt via @page frame) -->
+<div id="page-footer">
+    <table style="width: 100%; border: none; border-top: 1pt solid #333; padding-top: 4pt;">
+        <tr>
+            <td style="border: none; text-align: left; font-size: 9pt; color: #333;">Immissionsschutztechnische Vorabschätzung</td>
+            <td style="border: none; text-align: right; font-size: 9pt; color: #333;">Seite <pdf:pagenumber></td>
+        </tr>
+    </table>
+</div>
+
+<!-- ===== TITELSEITE ===== -->
+<div style="page-break-after: always;">
+    <div style="text-align: right;">
+        <img src="{{ logo_uri }}" width="200">
+    </div>
+
+    <br><br><br>
+    <h1>Immissionsschutztechnische Vorabschätzung</h1>
+    <p style="font-size: 14pt;">Änderung der Haltungsform in der Schweinemast</p>
+
+    <br><br>
+    <table class="info-table">
+        <tr><td colspan="2"><strong>Angaben zum landwirtschaftlichen Betrieb</strong></td></tr>
+        <tr><td style="width: 30%;"><strong>Adresse</strong></td><td>{{ project.strasse }} {{ project.hausnummer }}</td></tr>
+        <tr><td><strong>Ort</strong></td><td>{{ project.plz }} {{ project.ort }}</td></tr>
+    </table>
+
+    <br>
+    <table class="info-table">
+        <tr><td colspan="2"><strong>Projektinformationen</strong></td></tr>
+        <tr><td style="width: 30%;"><strong>Projektnummer</strong></td><td>{{ project.projektnummer }}</td></tr>
+        <tr><td><strong>Datum</strong></td><td>{{ datum }}</td></tr>
+    </table>
+
+    <br><br><br><br><br>
+    <p><strong>Erstellt durch</strong></p>
+    <p>
+        {{ texts.ERSTELLT_DURCH_FIRMA }}<br>
+        {{ texts.ERSTELLT_DURCH_PERSON }}<br>
+        {{ texts.ERSTELLT_DURCH_STRASSE }}<br>
+        {{ texts.ERSTELLT_DURCH_ORT }}<br>
+        {{ texts.ERSTELLT_DURCH_TELEFON }}<br>
+        {{ texts.ERSTELLT_DURCH_EMAIL }}
+    </p>
+
+    <br><br>
+    <div class="verwendungshinweis">
+        <p><strong>Verwendungshinweis:</strong><br>
+        {{ texts.VERWENDUNGSHINWEIS }}</p>
+    </div>
+</div>
+
+<!-- ===== INHALTSVERZEICHNIS ===== -->
+<div style="page-break-after: always;">
+    <h2>Inhaltsverzeichnis</h2>
+    <p style="margin-top: 12pt;"><strong>1 Einleitung</strong></p>
+    <p style="padding-left: 20pt;">1.1 Baurechtlich genehmigte Tierhaltungsanlagen</p>
+    <p style="padding-left: 20pt;">1.2 Anlagen mit Genehmigungspflicht nach BImSchG</p>
+    <p style="padding-left: 20pt;">1.3 Zielsetzung der Vorabschätzung</p>
+    <p style="padding-left: 20pt;">1.4 Systematik der Vorabschätzung</p>
+    <p style="margin-top: 8pt;"><strong>2 Beschreibung des Vorhabens</strong></p>
+    <p style="padding-left: 20pt;">2.1 Genehmigungsrechtliche Einordnung</p>
+    <p style="padding-left: 20pt;">2.2 Standortbeschreibung</p>
+    <p style="padding-left: 20pt;">2.3 Stallanlagen und Lüftungssysteme</p>
+    <p style="margin-top: 8pt;"><strong>3 Zusammenfassung der Vorabschätzung</strong></p>
+    <p style="margin-top: 8pt;"><strong>4 Weitere Schritte</strong></p>
+</div>
+
+<!-- ===== 1. EINLEITUNG ===== -->
+<div style="page-break-after: always;">
+    <h2>1 Einleitung</h2>
+
+    <p>{{ texts.EINLEITUNG_INTRO }}</p>
+    <p>{{ texts.EINLEITUNG_GERUCH }}</p>
+    <p>{{ texts.EINLEITUNG_EINSTUFUNG }}</p>
+
+    <h3>1.1 Baurechtlich genehmigte Tierhaltungsanlagen</h3>
+    <p>{{ texts.BAURECHTLICH_P1 }}</p>
+    <p>{{ texts.BAURECHTLICH_P2 }}</p>
+    <p>{{ texts.BAURECHTLICH_P3 }}</p>
+
+    <h3>1.2 Anlagen mit Genehmigungspflicht nach BImSchG</h3>
+    <p>{{ texts.BIMSCHG_PFLICHT }}</p>
+
+    <h3>1.3 Zielsetzung der Vorabschätzung</h3>
+    <p>{{ texts.ZIELSETZUNG_P1 }}</p>
+    <p>{{ texts.ZIELSETZUNG_P2 }}</p>
+    <p>{{ texts.ZIELSETZUNG_P3 }}</p>
+
+    <h3>1.4 Systematik der Vorabschätzung</h3>
+    <p>{{ texts.SYSTEMATIK_P1 }}</p>
+    <p><strong>Schwierigkeit:</strong> {{ texts.SYSTEMATIK_SCHWIERIGKEIT }}</p>
+    <p><strong>Aufwand:</strong> {{ texts.SYSTEMATIK_AUFWAND }}</p>
+    <p>{{ texts.SYSTEMATIK_AMPEL }}</p>
+
+    <table>
+        <tr>
+            <td class="ampel-green"><em>unbedenklich / gering</em></td>
+            <td class="ampel-yellow"><em>relevant / vertiefend</em></td>
+            <td class="ampel-red"><em>kritisch / erheblich</em></td>
+        </tr>
+    </table>
+    <p class="table-caption">Tabelle 1: Bewertungsskala zur Schwierigkeit und zum Aufwand</p>
+
+    <p>{{ texts.SYSTEMATIK_ERKLAERUNG }}</p>
+    <p>{{ texts.SYSTEMATIK_BEGRUENDUNG }}</p>
+</div>
+
+<!-- ===== 2. BESCHREIBUNG DES VORHABENS ===== -->
+<div style="page-break-after: always;">
+    <h2>2 Beschreibung des Vorhabens</h2>
+
+    <h3>2.1 Genehmigungsrechtliche Einordnung</h3>
+    <p>{{ project.genehmigung_text }}</p>
+
+    <table>
+        <tr>
+            <th style="width: 17%;"></th>
+            <th>Aufwand</th>
+            <th>Schwierigkeit</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;"><strong>Begründung</strong></td>
+            <td class="{{ ampel_class(project.genehmigung.aufwand) }}">{{ project.genehmigung.begruendung_aufwand }}</td>
+            <td>{% if project.genehmigung.schwierigkeit == 'Kein Einfluss' %}Kein Einfluss{% else %}{{ project.genehmigung.begruendung_schwierigkeit }}{% endif %}</td>
+        </tr>
+    </table>
+    <p class="table-caption">Tabelle 2: Einschätzung nach genehmigungsrechtlicher Einordnung</p>
+
+    <h3>2.2 Standortbeschreibung</h3>
+    <p>{{ project.standort_text }}</p>
+
+    {% if project.lageplan_b64 %}
+    <div style="text-align: center; margin: 12pt 0;">
+        <img src="data:image/png;base64,{{ project.lageplan_b64 }}" width="480">
+        <p class="figure-caption">Abbildung 1: Lageplan</p>
+    </div>
+    {% endif %}
+
+    <h4>Immissionsorte</h4>
+    {% for paragraph in texts.IMMISSIONSORTE_TEXT.split('\n\n') %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+
+    <table>
+        <tr>
+            <th style="width: 17%;"></th>
+            <th>Aufwand</th>
+            <th>Schwierigkeit</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;"><strong>Begründung</strong></td>
+            <td class="{{ ampel_class(project.immissionsorte.aufwand) }}">{{ project.immissionsorte.begruendung_aufwand }}</td>
+            <td class="{{ ampel_class(project.immissionsorte.schwierigkeit) }}">{{ project.immissionsorte.begruendung_schwierigkeit }}</td>
+        </tr>
+    </table>
+    <p class="table-caption">Tabelle 3: Einschätzung nach Bestimmung der Immissionsorte</p>
+
+    <h4>Nachbarbetriebe</h4>
+    <p>{{ texts.NACHBARBETRIEBE_TEXT }}</p>
+
+    <table>
+        <tr>
+            <th style="width: 17%;"></th>
+            <th>Aufwand</th>
+            <th>Schwierigkeit</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;"><strong>Begründung</strong></td>
+            <td class="{{ ampel_class(project.nachbarbetriebe.aufwand) }}">{{ project.nachbarbetriebe.begruendung_aufwand }}</td>
+            <td class="{{ ampel_class(project.nachbarbetriebe.schwierigkeit) }}">{{ project.nachbarbetriebe.begruendung_schwierigkeit }}</td>
+        </tr>
+    </table>
+    <p class="table-caption">Tabelle 4: Einschätzung nach Bestimmung der Nachbarbetriebe</p>
+
+    <h3>2.3 Stallanlagen und Lüftungssysteme</h3>
+    <p>{{ texts.STALLANLAGEN_INTRO }}</p>
+
+    <ol>
+    {% for name, desc in texts.STALLANLAGEN_TYPEN %}
+        <li><strong>{{ name }}:</strong> {{ desc }}</li>
+    {% endfor %}
+    </ol>
+
+    <p>{{ texts.STALLANLAGEN_SDT }}</p>
+    <p>{{ texts.STALLANLAGEN_TABELLEN }}</p>
+
+    <h4>Ist-Zustand der Tierhaltung</h4>
+    <table>
+        <tr>
+            <th>BE-Nr.</th>
+            <th>Tierart</th>
+            <th>Tierplätze</th>
+            <th>Ausführung</th>
+            <th>Kamine</th>
+            <th>S.d.T.</th>
+        </tr>
+        {% for row in project.ist_zustand %}
+        <tr>
+            <td>{{ row.be_nr }}</td>
+            <td>{{ row.tierart }}</td>
+            <td>{{ row.tierplaetze }}</td>
+            <td>{{ row.ausfuehrung.split(' - ')[0] if ' - ' in row.ausfuehrung else row.ausfuehrung }}</td>
+            <td>{{ row.kamine }}</td>
+            <td>{{ row.stand_der_technik }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="table-caption">Tabelle 5: Übersicht des Ist-Zustands</p>
+
+    <h4>Geplanter Zustand der Tierhaltung</h4>
+    <table>
+        <tr>
+            <th>BE-Nr.</th>
+            <th>Tierart</th>
+            <th>Tierplätze</th>
+            <th>Ausführung</th>
+        </tr>
+        {% for row in project.plan_zustand %}
+        <tr>
+            <td>{{ row.be_nr }}</td>
+            <td>{{ row.tierart }}</td>
+            <td>{{ row.tierplaetze }}</td>
+            <td>{{ row.ausfuehrung.split(' - ')[0] if ' - ' in row.ausfuehrung else row.ausfuehrung }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="table-caption">Tabelle 6: Übersicht des Plan-Zustands</p>
+
+    <table>
+        <tr>
+            <th style="width: 17%;"></th>
+            <th>Aufwand</th>
+            <th>Schwierigkeit</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;"><strong>Begründung</strong></td>
+            <td class="{{ ampel_class(project.ist_plan.aufwand) }}">{{ project.ist_plan.begruendung_aufwand }}</td>
+            <td class="{{ ampel_class(project.ist_plan.schwierigkeit) }}">{{ project.ist_plan.begruendung_schwierigkeit }}</td>
+        </tr>
+    </table>
+    <p class="table-caption">Tabelle 7: Einschätzung nach Beurteilung der Stallanlagen</p>
+</div>
+
+<!-- ===== 3. ZUSAMMENFASSUNG ===== -->
+<div style="page-break-after: always;">
+    <h2>3 Zusammenfassung der Vorabschätzung</h2>
+    <p>{{ project.zusammenfassung_text }}</p>
+
+    <table>
+        <tr>
+            <th>Thema</th>
+            <th>Aufwand</th>
+            <th>Schwierigkeit</th>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: bold;">Genehmigungsrecht</td>
+            <td class="{{ ampel_class(project.genehmigung.aufwand) }}">&nbsp;</td>
+            <td>{% if project.genehmigung.schwierigkeit == 'Kein Einfluss' %}Kein Einfluss{% endif %}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: bold;">Immissionsorte</td>
+            <td class="{{ ampel_class(project.immissionsorte.aufwand) }}">&nbsp;</td>
+            <td class="{{ ampel_class(project.immissionsorte.schwierigkeit) }}">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: bold;">Nachbarbetriebe</td>
+            <td class="{{ ampel_class(project.nachbarbetriebe.aufwand) }}">&nbsp;</td>
+            <td class="{{ ampel_class(project.nachbarbetriebe.schwierigkeit) }}">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: bold;">Ist- und Plan-Zustand</td>
+            <td class="{{ ampel_class(project.ist_plan.aufwand) }}">&nbsp;</td>
+            <td class="{{ ampel_class(project.ist_plan.schwierigkeit) }}">&nbsp;</td>
+        </tr>
+    </table>
+    <p class="table-caption">Tabelle 8: Gesamteinschätzung des Vorhabens</p>
+
+    <h4>Prüfungserfordernis</h4>
+    <p>{{ texts.PRUEFUNG_INTRO }}</p>
+
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th style="width: 25%;">Ermittlung erforderlich</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ermittlung der Geruchshäufigkeiten</td>
+            <td>{{ project.pruefung.geruchshaeufigkeiten }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ermittlung der Stickstoffdeposition</td>
+            <td>{{ project.pruefung.stickstoffdeposition }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ausbreitungsberechnung Ist-Zustand</td>
+            <td>{{ project.pruefung.ausbreitung_ist }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ausbreitungsberechnung Plan-Zustand</td>
+            <td>{{ project.pruefung.ausbreitung_plan }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ausbreitungsberechnung Gesamtbelastung</td>
+            <td>{{ project.pruefung.ausbreitung_gesamt }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Konditionierung von Minderungsmaßnahmen</td>
+            <td>{{ project.pruefung.minderungsmassnahmen }}</td>
+        </tr>
+    </table>
+    <p class="table-caption">Tabelle 9: Prüfungserfordernis</p>
+</div>
+
+<!-- ===== 4. WEITERE SCHRITTE ===== -->
+<div>
+    <h2>4 Weitere Schritte</h2>
+    <p>{{ texts.WEITERE_SCHRITTE_INTRO }}</p>
+
+    <div class="contact-block">
+        <p><strong>{{ texts.KONTAKT_NAME }}</strong><br>
+        {{ texts.KONTAKT_FIRMA }}<br>
+        {{ texts.KONTAKT_STRASSE }}<br>
+        {{ texts.KONTAKT_ORT }}<br>
+        Telefon: {{ texts.KONTAKT_TELEFON }}<br>
+        E-Mail: {{ texts.KONTAKT_EMAIL }}</p>
+    </div>
+
+    <p><strong>Wir können Sie im kompletten Immissionsschutz begleiten und schlagen folgende Schritte vor:</strong></p>
+    <ol>
+    {% for item in texts.WEITERE_SCHRITTE_ITEMS %}
+        <li>{{ item }}</li>
+    {% endfor %}
+    </ol>
+</div>
+
+</body>
+</html>

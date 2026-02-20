@@ -1,0 +1,155 @@
+/* PDF-Stylesheet für Immissionsschutztechnische Vorabschätzung
+   Kompatibel mit xhtml2pdf */
+
+@page {
+    size: A4;
+    margin: 2.5cm;
+    margin-top: 3.5cm;
+    margin-bottom: 2.5cm;
+
+    @frame header_frame {
+        -pdf-frame-content: page-header;
+        top: 1cm;
+        margin-left: 2.5cm;
+        margin-right: 2.5cm;
+        height: 1.5cm;
+    }
+
+    @frame footer_frame {
+        -pdf-frame-content: page-footer;
+        bottom: 0.3cm;
+        margin-left: 2.5cm;
+        margin-right: 2.5cm;
+        height: 1cm;
+    }
+}
+
+/* Grundlegende Typografie */
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #0F1B38;
+}
+
+h1 {
+    font-size: 20pt;
+    color: #0F1B38;
+    margin-top: 0;
+    margin-bottom: 10pt;
+}
+
+h2 {
+    font-size: 16pt;
+    color: #0F1B38;
+    margin-top: 0;
+    margin-bottom: 12pt;
+}
+
+h3 {
+    font-size: 13pt;
+    color: #0F1B38;
+    margin-top: 16pt;
+    margin-bottom: 8pt;
+}
+
+h4 {
+    font-size: 11pt;
+    color: #0F1B38;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 8pt;
+    text-align: justify;
+}
+
+/* Tabellen */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10pt;
+    margin-bottom: 6pt;
+    font-size: 10pt;
+}
+
+table th, table td {
+    border: 1px solid #333;
+    padding: 6px 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table th {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+.table-caption {
+    font-size: 9pt;
+    margin-top: 4pt;
+    text-align: center;
+    color: #555;
+    font-style: italic;
+}
+
+/* Ampelfarben */
+.ampel-green {
+    background-color: #A3E4B5;
+}
+
+.ampel-yellow {
+    background-color: #FFE680;
+}
+
+.ampel-red {
+    background-color: #FFB3AE;
+}
+
+/* Info-Tabelle (Titelseite) */
+.info-table {
+    border: none;
+    margin-top: 15pt;
+}
+
+.info-table td {
+    border: none;
+    text-align: left;
+    padding: 2pt 8pt 2pt 0;
+    vertical-align: top;
+}
+
+/* Verwendungshinweis */
+.verwendungshinweis {
+    font-size: 8pt;
+    margin-top: 20pt;
+    color: #555;
+}
+
+/* Aufzählung */
+ol {
+    margin-top: 6pt;
+    margin-bottom: 10pt;
+    padding-left: 20pt;
+}
+
+ol li {
+    margin-bottom: 4pt;
+}
+
+/* Abbildungen */
+.figure-caption {
+    font-size: 9pt;
+    color: #555;
+    font-style: italic;
+    margin-top: 4pt;
+    text-align: center;
+}
+
+/* Kontaktblock */
+.contact-block {
+    text-align: center;
+    margin: 16pt 0;
+}
