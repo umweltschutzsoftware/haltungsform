@@ -39,38 +39,24 @@ def _ampel_class(color_value: str) -> str:
         return ""
 
 
-def generate_pdf(project: FarmProject) -> bytes:
-    """Erzeugt das PDF für ein Projekt.
-
-    Args:
-        project: Das vollständige Projektdatenmodell.
-
-    Returns:
-        Die PDF-Datei als Bytes.
-    """
-    # Jinja2-Environment
+def _render_pdf(project: FarmProject, template_name: str) -> bytes:
+    """Interne Hilfsfunktion: Rendert ein Template und erzeugt ein PDF."""
     env = Environment(
         loader=FileSystemLoader(str(_TEMPLATES_DIR)),
         autoescape=False,
     )
-
-    # Template-Funktion registrieren
     env.globals["ampel_class"] = _ampel_class
 
-    template = env.get_template("report.html")
+    template = env.get_template(template_name)
 
-    # CSS laden
     css_path = _TEMPLATES_DIR / "style.css"
     css_content = css_path.read_text(encoding="utf-8")
 
-    # Logo
     logo_b64 = _load_logo_b64()
     logo_uri = f"data:image/png;base64,{logo_b64}"
 
-    # Datum
     datum = date.today().strftime("%d.%m.%Y")
 
-    # HTML rendern
     html_content = template.render(
         css=css_content,
         logo_uri=logo_uri,
@@ -79,7 +65,6 @@ def generate_pdf(project: FarmProject) -> bytes:
         datum=datum,
     )
 
-    # PDF erzeugen mit xhtml2pdf
     pdf_buffer = io.BytesIO()
     pisa_status = pisa.CreatePDF(
         src=html_content,
@@ -92,3 +77,30 @@ def generate_pdf(project: FarmProject) -> bytes:
 
     pdf_buffer.seek(0)
     return pdf_buffer.read()
+
+
+def generate_pdf(project: FarmProject) -> bytes:
+    """Erzeugt den vollständigen PDF-Report für ein Projekt.
+
+    Args:
+        project: Das vollständige Projektdatenmodell.
+
+    Returns:
+        Die PDF-Datei als Bytes.
+    """
+    return _render_pdf(project, "report.html")
+
+
+def generate_pdf_kurz(project: FarmProject) -> bytes:
+    """Erzeugt den Kurzreport (max. 3 Seiten) für ein Projekt.
+
+    Enthält: Deckblatt, Tierzahlen mit Ampelbewertung, Zusammenfassung und
+    nächste Schritte.
+
+    Args:
+        project: Das vollständige Projektdatenmodell.
+
+    Returns:
+        Die PDF-Datei als Bytes.
+    """
+    return _render_pdf(project, "report_kurz.html")

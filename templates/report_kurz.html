@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <style>
+{{ css }}
+
+/* ── Kurzreport-Overrides ─────────────────────────────────── */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+}
+
+h1, h2, h3, h4, p, td, th, li {
+    color: #000000;
+}
+
+/* Kompaktere Tabellenzeilen – höhere Spezifität überschreibt style.css */
+body table th, body table td {
+    padding: 6px 8px;
+}
+
+/* Fußnote Verwendungshinweis */
+.fn-hinweis {
+    font-size: 7.5pt;
+    color: #333;
+    margin-top: 10pt;
+    padding-top: 5pt;
+}
+
+/* Ampel-Legende */
+.ampel-legend-table {
+    width: 100%;
+    margin-top: 4pt;
+    margin-bottom: 10pt;
+    font-size: 9pt;
+}
+
+.ampel-legend-table td {
+    border: 1px solid #ccc;
+    padding: 4px 10px;
+    text-align: center;
+    font-style: italic;
+    width: 33%;
+}
+    </style>
+</head>
+<body>
+
+<!-- ── Header: nur Logo, oben rechts, identisch auf allen Seiten ── -->
+<div id="page-header" style="text-align: right;">
+    <img src="{{ logo_uri }}" height="45">
+</div>
+
+<!-- ── Footer: Projektnummer | Seite X von Y ── -->
+<div id="page-footer">
+    <table style="width: 100%; border: none; border-top: 1pt solid #333; padding-top: 4pt;">
+        <tr>
+            <td style="border: none; text-align: left; font-size: 9pt; color: #333;">Projektnummer: {{ project.projektnummer }}</td>
+            <td style="border: none; text-align: right; font-size: 9pt; color: #333;">Seite <pdf:pagenumber> / <pdf:pagecount></td>
+        </tr>
+    </table>
+</div>
+
+<!-- ===== SEITE 1: DECKBLATT ===== -->
+<div style="page-break-after: always;">
+    <br><br><br>
+    <h1>Immissionsschutztechnische Vorabschätzung</h1>
+    <p style="font-size: 13pt; font-weight: bold; margin-bottom: 4pt;">Kurzreport</p>
+    <p style="font-size: 12pt;">Änderung der Haltungsform in der Tierhaltung</p>
+
+    <br><br>
+    <table class="info-table">
+        <tr><td colspan="2"><strong>Angaben zum landwirtschaftlichen Betrieb</strong></td></tr>
+        <tr><td style="width: 30%;"><strong>Adresse</strong></td><td>{{ project.strasse }} {{ project.hausnummer }}</td></tr>
+        <tr><td><strong>Ort</strong></td><td>{{ project.plz }} {{ project.ort }}</td></tr>
+    </table>
+
+    <br>
+    <table class="info-table">
+        <tr><td colspan="2"><strong>Projektinformationen</strong></td></tr>
+        <tr><td style="width: 30%;"><strong>Projektnummer</strong></td><td>{{ project.projektnummer }}</td></tr>
+        <tr><td><strong>Datum</strong></td><td>{{ datum }}</td></tr>
+    </table>
+
+    <br><br><br><br><br>
+    <p><strong>Erstellt durch</strong></p>
+    <p>
+        {{ texts.ERSTELLT_DURCH_FIRMA }}<br>
+        {{ texts.ERSTELLT_DURCH_PERSON }}<br>
+        {{ texts.ERSTELLT_DURCH_STRASSE }}<br>
+        {{ texts.ERSTELLT_DURCH_ORT }}<br>
+        {{ texts.ERSTELLT_DURCH_TELEFON }}<br>
+        {{ texts.ERSTELLT_DURCH_EMAIL }}
+    </p>
+
+    <div class="fn-hinweis">
+        <strong>Verwendungshinweis:</strong> {{ texts.VERWENDUNGSHINWEIS }}
+    </div>
+</div>
+
+<!-- ===== SEITE 2: TIERZAHLEN + AMPELSYSTEM ===== -->
+<div style="page-break-after: always;">
+    <h2>Stallanlagen und Beurteilung</h2>
+    <p>{{ texts.STALLANLAGEN_TABELLEN }}</p>
+
+    <h3>Ist-Zustand der Tierhaltung</h3>
+    <table>
+        <tr>
+            <th>BE-Nr.</th>
+            <th>Tierart</th>
+            <th>Tierplätze</th>
+            <th>Ausführung</th>
+            <th>Kamine</th>
+            <th>S.d.T.</th>
+        </tr>
+        {% for row in project.ist_zustand %}
+        <tr>
+            <td>{{ row.be_nr }}</td>
+            <td>{{ row.tierart }}</td>
+            <td>{{ row.tierplaetze }}</td>
+            <td>{{ row.ausfuehrung.split(' - ')[0] if ' - ' in row.ausfuehrung else row.ausfuehrung }}</td>
+            <td>{{ row.kamine }}</td>
+            <td>{{ row.stand_der_technik }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="table-caption">Tabelle 1: Übersicht des Ist-Zustands</p>
+
+    <h3>Geplanter Zustand der Tierhaltung</h3>
+    <table>
+        <tr>
+            <th>BE-Nr.</th>
+            <th>Tierart</th>
+            <th>Tierplätze</th>
+            <th>Ausführung</th>
+        </tr>
+        {% for row in project.plan_zustand %}
+        <tr>
+            <td>{{ row.be_nr }}</td>
+            <td>{{ row.tierart }}</td>
+            <td>{{ row.tierplaetze }}</td>
+            <td>{{ row.ausfuehrung.split(' - ')[0] if ' - ' in row.ausfuehrung else row.ausfuehrung }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="table-caption">Tabelle 2: Übersicht des Plan-Zustands</p>
+
+    <div class="fn-hinweis">
+        <p style="margin-top: 0; margin-bottom: 2pt;">{{ texts.STALLANLAGEN_INTRO }}</p>
+        {% for name, beschreibung in texts.STALLANLAGEN_TYPEN %}
+            <p style="margin-top: 0; margin-bottom: 2pt;">
+                <strong>{{ loop.index }}: {{ name }} – </strong> {{ beschreibung }}
+            </p>
+        {% endfor %}
+    </div>
+    
+    
+</div>
+
+<div style="page-break-after: always;">
+    <h3>Gesamtbeurteilung (Ampelsystem)</h3>
+    <p style="margin-bottom: 4pt;">
+        Der Aufwand und die Schwierigkeit jedes Themenbereichs werden anhand
+        eines dreistufigen Ampelsystems bewertet:
+    </p>
+    <table class="ampel-legend-table">
+        <tr>
+            <td class="ampel-green">unbedenklich&nbsp;/&nbsp;gering</td>
+            <td class="ampel-yellow">relevant&nbsp;/&nbsp;vertiefend</td>
+            <td class="ampel-red">kritisch&nbsp;/&nbsp;erheblich</td>
+        </tr>
+    </table>
+    <p style="margin-bottom: 8pt;">
+        Für gelbe und rote Einstufungen sind Begründungen in der jeweiligen Zelle angegeben.
+        Grüne Einstufungen erfordern keine gesonderte Begründung.
+    </p>
+
+    <table>
+        <tr>
+            <th style="width: 28%; text-align: left;">Thema</th>
+            <th style="width: 36%;">Aufwand</th>
+            <th style="width: 36%;">Schwierigkeit</th>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: bold;">Genehmigungsrecht</td>
+            <td class="{{ ampel_class(project.genehmigung.aufwand) }}" style="text-align: left; font-size: 9pt; padding: 5px 8px;">
+                {% if project.genehmigung.begruendung_aufwand %}{{ project.genehmigung.begruendung_aufwand }}{% else %}&nbsp;{% endif %}
+            </td>
+            <td style="font-style: italic; font-size: 9pt; color: #555;">Kein Einfluss</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: bold;">Immissionsorte</td>
+            <td class="{{ ampel_class(project.immissionsorte.aufwand) }}" style="text-align: left; font-size: 9pt; padding: 5px 8px;">
+                {% if project.immissionsorte.begruendung_aufwand %}{{ project.immissionsorte.begruendung_aufwand }}{% else %}&nbsp;{% endif %}
+            </td>
+            <td class="{{ ampel_class(project.immissionsorte.schwierigkeit) }}" style="text-align: left; font-size: 9pt; padding: 5px 8px;">
+                {% if project.immissionsorte.begruendung_schwierigkeit %}{{ project.immissionsorte.begruendung_schwierigkeit }}{% else %}&nbsp;{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: bold;">Nachbarbetriebe</td>
+            <td class="{{ ampel_class(project.nachbarbetriebe.aufwand) }}" style="text-align: left; font-size: 9pt; padding: 5px 8px;">
+                {% if project.nachbarbetriebe.begruendung_aufwand %}{{ project.nachbarbetriebe.begruendung_aufwand }}{% else %}&nbsp;{% endif %}
+            </td>
+            <td class="{{ ampel_class(project.nachbarbetriebe.schwierigkeit) }}" style="text-align: left; font-size: 9pt; padding: 5px 8px;">
+                {% if project.nachbarbetriebe.begruendung_schwierigkeit %}{{ project.nachbarbetriebe.begruendung_schwierigkeit }}{% else %}&nbsp;{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: bold;">Ist- und Plan-Zustand</td>
+            <td class="{{ ampel_class(project.ist_plan.aufwand) }}" style="text-align: left; font-size: 9pt; padding: 5px 8px;">
+                {% if project.ist_plan.begruendung_aufwand %}{{ project.ist_plan.begruendung_aufwand }}{% else %}&nbsp;{% endif %}
+            </td>
+            <td class="{{ ampel_class(project.ist_plan.schwierigkeit) }}" style="text-align: left; font-size: 9pt; padding: 5px 8px;">
+                {% if project.ist_plan.begruendung_schwierigkeit %}{{ project.ist_plan.begruendung_schwierigkeit }}{% else %}&nbsp;{% endif %}
+            </td>
+        </tr>
+    </table>
+    <p class="table-caption">Tabelle 3: Gesamteinschätzung des Vorhabens mit Begründungen</p>
+    <h3>Zusammenfassung</h3>
+    <p>{{ project.zusammenfassung_text }}</p>
+</div>
+
+<!-- ===== SEITE 4: FLIESSTEXT + PRÜFUNGSERFORDERNIS ===== -->
+<div>
+    <h2>Ansprechpartner</h2>
+    <p>{{ texts.WEITERE_SCHRITTE_INTRO }}</p>
+    <div class="contact-block">
+        <p><strong>{{ texts.KONTAKT_NAME }}</strong><br>
+        {{ texts.KONTAKT_FIRMA }}<br>
+        {{ texts.KONTAKT_STRASSE }}<br>
+        {{ texts.KONTAKT_ORT }}<br>
+        Telefon: {{ texts.KONTAKT_TELEFON }}<br>
+        E-Mail: {{ texts.KONTAKT_EMAIL }}</p>
+    </div>
+    <h2>Prüfungserfordernis</h2>
+    <p>{{ texts.PRUEFUNG_INTRO }}</p>
+
+    <table>
+        <tr>
+            <th style="text-align: left;">Parameter</th>
+            <th style="width: 30%;">Ermittlung erforderlich</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ermittlung der Geruchshäufigkeiten</td>
+            <td>{{ project.pruefung.geruchshaeufigkeiten }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ermittlung der Stickstoffdeposition</td>
+            <td>{{ project.pruefung.stickstoffdeposition }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ausbreitungsberechnung Ist-Zustand</td>
+            <td>{{ project.pruefung.ausbreitung_ist }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ausbreitungsberechnung Plan-Zustand</td>
+            <td>{{ project.pruefung.ausbreitung_plan }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ausbreitungsberechnung Gesamtbelastung</td>
+            <td>{{ project.pruefung.ausbreitung_gesamt }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Konditionierung von Minderungsmaßnahmen</td>
+            <td>{{ project.pruefung.minderungsmassnahmen }}</td>
+        </tr>
+    </table>
+    <p class="table-caption">Tabelle 4: Prüfungserfordernis</p>
+
+    <p>Der Aufwand für die immissionsschutzrechtliche Beurteilung des Vorhabens ist auf Basis dieser Vorabschätzung gut darstellbar.</p>
+</div>
+
+</body>
+</html>

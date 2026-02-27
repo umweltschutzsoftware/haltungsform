@@ -19,7 +19,7 @@ from src.models import (
     PlanZustandRow,
     Pruefungserfordernis,
 )
-from src.pdf_generator import generate_pdf
+from src.pdf_generator import generate_pdf, generate_pdf_kurz
 from src.tim_online import build_tim_online_url
 from src.xlsx_parser import parse_xlsx
 
@@ -495,96 +495,116 @@ with tab5:
 
     st.divider()
 
-    if st.button("PDF erstellen", type="primary", use_container_width=True):
-        with st.spinner("PDF wird erzeugt..."):
-            try:
-                # Daten zusammenbauen
-                ist_rows = []
-                for _, row in st.session_state.ist_df.iterrows():
-                    ist_rows.append(IstZustandRow(
-                        be_nr=str(row.get("BE-Nr.", "")),
-                        tierart=str(row.get("Tierart", "Mastschweine")),
-                        tierplaetze=int(row.get("Tierplätze", 0)) if pd.notna(row.get("Tierplätze")) else 0,
-                        ausfuehrung=str(row.get("Ausführung", "1 - Zwangsbelüfteter Stall")),
-                        kamine=str(row.get("Kamine", "Nein")),
-                        stand_der_technik=str(row.get("S.d.T.", "Nein")),
-                    ))
+    def _build_project() -> FarmProject:
+        """Erstellt das FarmProject-Objekt aus dem aktuellen Session State."""
+        ist_rows = []
+        for _, row in st.session_state.ist_df.iterrows():
+            ist_rows.append(IstZustandRow(
+                be_nr=str(row.get("BE-Nr.", "")),
+                tierart=str(row.get("Tierart", "Mastschweine")),
+                tierplaetze=int(row.get("Tierplätze", 0)) if pd.notna(row.get("Tierplätze")) else 0,
+                ausfuehrung=str(row.get("Ausführung", "1 - Zwangsbelüfteter Stall")),
+                kamine=str(row.get("Kamine", "Nein")),
+                stand_der_technik=str(row.get("S.d.T.", "Nein")),
+            ))
 
-                plan_rows = []
-                for _, row in st.session_state.plan_df.iterrows():
-                    plan_rows.append(PlanZustandRow(
-                        be_nr=str(row.get("BE-Nr.", "")),
-                        tierart=str(row.get("Tierart", "Mastschweine")),
-                        tierplaetze=int(row.get("Tierplätze", 0)) if pd.notna(row.get("Tierplätze")) else 0,
-                        ausfuehrung=str(row.get("Ausführung", "1 - Zwangsbelüfteter Stall")),
-                    ))
+        plan_rows = []
+        for _, row in st.session_state.plan_df.iterrows():
+            plan_rows.append(PlanZustandRow(
+                be_nr=str(row.get("BE-Nr.", "")),
+                tierart=str(row.get("Tierart", "Mastschweine")),
+                tierplaetze=int(row.get("Tierplätze", 0)) if pd.notna(row.get("Tierplätze")) else 0,
+                ausfuehrung=str(row.get("Ausführung", "1 - Zwangsbelüfteter Stall")),
+            ))
 
-                # Lageplan
-                lageplan_b64 = None
-                if st.session_state.lageplan_bytes:
-                    lageplan_b64 = base64.b64encode(st.session_state.lageplan_bytes).decode()
+        lageplan_b64 = None
+        if st.session_state.lageplan_bytes:
+            lageplan_b64 = base64.b64encode(st.session_state.lageplan_bytes).decode()
 
-                project = FarmProject(
-                    strasse=st.session_state.strasse,
-                    hausnummer=st.session_state.hausnummer,
-                    plz=st.session_state.plz,
-                    ort=st.session_state.ort,
-                    projektnummer=st.session_state.projektnummer,
-                    genehmigung_text=st.session_state.genehmigung_text,
-                    standort_text=st.session_state.standort_text,
-                    zusammenfassung_text=st.session_state.zusammenfassung_text,
-                    genehmigung=Assessment(
-                        aufwand=AMPEL_LABELS[st.session_state.gen_aufwand],
-                        schwierigkeit="Kein Einfluss",
-                        begruendung_aufwand=st.session_state.gen_begr_aufwand,
-                    ),
-                    immissionsorte=Assessment(
-                        aufwand=AMPEL_LABELS[st.session_state.imm_aufwand],
-                        schwierigkeit=AMPEL_LABELS[st.session_state.imm_schwierigkeit].value,
-                        begruendung_aufwand=st.session_state.imm_begr_aufwand,
-                        begruendung_schwierigkeit=st.session_state.imm_begr_schwierigkeit,
-                    ),
-                    nachbarbetriebe=Assessment(
-                        aufwand=AMPEL_LABELS[st.session_state.nach_aufwand],
-                        schwierigkeit=AMPEL_LABELS[st.session_state.nach_schwierigkeit].value,
-                        begruendung_aufwand=st.session_state.nach_begr_aufwand,
-                        begruendung_schwierigkeit=st.session_state.nach_begr_schwierigkeit,
-                    ),
-                    ist_plan=Assessment(
-                        aufwand=AMPEL_LABELS[st.session_state.ip_aufwand],
-                        schwierigkeit=AMPEL_LABELS[st.session_state.ip_schwierigkeit].value,
-                        begruendung_aufwand=st.session_state.ip_begr_aufwand,
-                        begruendung_schwierigkeit=st.session_state.ip_begr_schwierigkeit,
-                    ),
-                    ist_zustand=ist_rows,
-                    plan_zustand=plan_rows,
-                    pruefung=Pruefungserfordernis(
-                        geruchshaeufigkeiten=st.session_state.pruef_geruch,
-                        stickstoffdeposition=st.session_state.pruef_stickstoff,
-                        ausbreitung_ist=st.session_state.pruef_ist,
-                        ausbreitung_plan=st.session_state.pruef_plan,
-                        ausbreitung_gesamt=st.session_state.pruef_gesamt,
-                        minderungsmassnahmen=st.session_state.pruef_minderung,
-                    ),
-                    lageplan_b64=lageplan_b64,
-                )
+        return FarmProject(
+            strasse=st.session_state.strasse,
+            hausnummer=st.session_state.hausnummer,
+            plz=st.session_state.plz,
+            ort=st.session_state.ort,
+            projektnummer=st.session_state.projektnummer,
+            genehmigung_text=st.session_state.genehmigung_text,
+            standort_text=st.session_state.standort_text,
+            zusammenfassung_text=st.session_state.zusammenfassung_text,
+            genehmigung=Assessment(
+                aufwand=AMPEL_LABELS[st.session_state.gen_aufwand],
+                schwierigkeit="Kein Einfluss",
+                begruendung_aufwand=st.session_state.gen_begr_aufwand,
+            ),
+            immissionsorte=Assessment(
+                aufwand=AMPEL_LABELS[st.session_state.imm_aufwand],
+                schwierigkeit=AMPEL_LABELS[st.session_state.imm_schwierigkeit].value,
+                begruendung_aufwand=st.session_state.imm_begr_aufwand,
+                begruendung_schwierigkeit=st.session_state.imm_begr_schwierigkeit,
+            ),
+            nachbarbetriebe=Assessment(
+                aufwand=AMPEL_LABELS[st.session_state.nach_aufwand],
+                schwierigkeit=AMPEL_LABELS[st.session_state.nach_schwierigkeit].value,
+                begruendung_aufwand=st.session_state.nach_begr_aufwand,
+                begruendung_schwierigkeit=st.session_state.nach_begr_schwierigkeit,
+            ),
+            ist_plan=Assessment(
+                aufwand=AMPEL_LABELS[st.session_state.ip_aufwand],
+                schwierigkeit=AMPEL_LABELS[st.session_state.ip_schwierigkeit].value,
+                begruendung_aufwand=st.session_state.ip_begr_aufwand,
+                begruendung_schwierigkeit=st.session_state.ip_begr_schwierigkeit,
+            ),
+            ist_zustand=ist_rows,
+            plan_zustand=plan_rows,
+            pruefung=Pruefungserfordernis(
+                geruchshaeufigkeiten=st.session_state.pruef_geruch,
+                stickstoffdeposition=st.session_state.pruef_stickstoff,
+                ausbreitung_ist=st.session_state.pruef_ist,
+                ausbreitung_plan=st.session_state.pruef_plan,
+                ausbreitung_gesamt=st.session_state.pruef_gesamt,
+                minderungsmassnahmen=st.session_state.pruef_minderung,
+            ),
+            lageplan_b64=lageplan_b64,
+        )
 
-                pdf_bytes = generate_pdf(project)
+    col_voll, col_kurz = st.columns(2)
 
-                # Dateiname
-                pnr = st.session_state.projektnummer or "ENTWURF"
-                filename = f"Vorabschätzung-{pnr}.pdf"
+    with col_voll:
+        if st.button("Vollständiger Report erstellen", type="primary", use_container_width=True):
+            with st.spinner("PDF wird erzeugt..."):
+                try:
+                    project = _build_project()
+                    pdf_bytes = generate_pdf(project)
+                    pnr = st.session_state.projektnummer or "ENTWURF"
+                    filename = f"Vorabschätzung-{pnr}.pdf"
+                    st.download_button(
+                        label=f"PDF herunterladen ({filename})",
+                        data=pdf_bytes,
+                        file_name=filename,
+                        mime="application/pdf",
+                        type="primary",
+                        use_container_width=True,
+                    )
+                    st.success("Vollständiger Report erfolgreich erstellt!")
+                except Exception as e:
+                    st.error(f"Fehler bei der PDF-Erzeugung: {e}")
+                    st.exception(e)
 
-                st.download_button(
-                    label=f"PDF herunterladen ({filename})",
-                    data=pdf_bytes,
-                    file_name=filename,
-                    mime="application/pdf",
-                    type="primary",
-                    use_container_width=True,
-                )
-                st.success("PDF erfolgreich erstellt!")
-
-            except Exception as e:
-                st.error(f"Fehler bei der PDF-Erzeugung: {e}")
-                st.exception(e)
+    with col_kurz:
+        if st.button("Kurzreport erstellen (max. 3 Seiten)", use_container_width=True):
+            with st.spinner("Kurzreport wird erzeugt..."):
+                try:
+                    project = _build_project()
+                    pdf_bytes = generate_pdf_kurz(project)
+                    pnr = st.session_state.projektnummer or "ENTWURF"
+                    filename = f"Kurzreport-{pnr}.pdf"
+                    st.download_button(
+                        label=f"Kurzreport herunterladen ({filename})",
+                        data=pdf_bytes,
+                        file_name=filename,
+                        mime="application/pdf",
+                        use_container_width=True,
+                    )
+                    st.success("Kurzreport erfolgreich erstellt!")
+                except Exception as e:
+                    st.error(f"Fehler bei der PDF-Erzeugung: {e}")
+                    st.exception(e)

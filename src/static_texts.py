@@ -202,17 +202,12 @@ STALLANLAGEN_TABELLEN = (
 )
 
 PRUEFUNG_INTRO = (
-    "Die genaue Prüfungserfordernis wird erst nach Absprache mit der "
-    "Genehmigungsbehörde festgelegt. Unserer Einschätzung nach sind folgende "
-    "Parameter für die immissionsschutzrechtliche Beurteilung relevant:"
+    "Unserer Einschätzung nach sind folgende Parameter"
+    "für die immissionsschutzrechtliche Beurteilung relevant:"
 )
 
 WEITERE_SCHRITTE_INTRO = (
-    "Automatisierung hilft uns, die immissionsschutzrechtliche Beurteilung "
-    "effizient und kostengünstig durchzuführen. Durch dieses effiziente "
-    "Vorgehen haben wir mehr Zeit, uns mit allen Projektbeteiligen persönlich "
-    "zu beraten und die bestmögliche Lösung zu finden. Als persönlicher "
-    "Ansprechpartner steht Ihnen in diesem Projekt zur Verfügung:"
+    "Als persönlicher Ansprechpartner steht Ihnen in diesem Projekt zur Verfügung:"
 )
 
 KONTAKT_NAME = "Herr Andre Feldhaus"
@@ -224,7 +219,6 @@ KONTAKT_EMAIL = "feldhaus@richtershuels.de"
 
 WEITERE_SCHRITTE_ITEMS = [
     "Gemeinsame Absprache zum weiteren Vorgehen bezüglich der immissionsschutzrechtlichen Beurteilung.",
-    "Absprache mit der Genehmigungsbehörde über die Notwendigkeit der immissionsschutzfachlichen Gutachten.",
     "Ermittlung der Geruchsimmissionen durch Ausbreitungsberechnung und Abschätzung des weiteren Vorgehens.",
     "Falls erforderlich: Ermittlung der relevanten Betriebe, die als Vorbelastung für die Gesamtbelastungsbetrachtung herangezogen werden müssen.",
     "Falls erforderlich: Erhebung der Tierplatzzahlen und Anlagentypen der relevanten Betriebe.",
@@ -236,5 +230,5 @@ ERSTELLT_DURCH_FIRMA = "Ingenieurbüro Richters & Hüls"
 ERSTELLT_DURCH_PERSON = "B. Eng. Andre Feldhaus"
 ERSTELLT_DURCH_STRASSE = "Erhardstraße 9"
 ERSTELLT_DURCH_ORT = "48683 Ahaus"
-ERSTELLT_DURCH_TELEFON = "02561 / 43004"
-ERSTELLT_DURCH_EMAIL = "info@richtershuels.de"
+ERSTELLT_DURCH_TELEFON = "02561 / 43004-01"
+ERSTELLT_DURCH_EMAIL = "feldhaus@richtershuels.de"
